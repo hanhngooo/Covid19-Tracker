@@ -10,10 +10,26 @@ const fetchCountriesSuccess = (countries) => ({
 export const fetchAllCountries = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(
-        `${apiUrl}/v3/covid-19/countries?allowNull=false`
-      );
+      const response = await axios.get(`${apiUrl}/countries?allowNull=false`);
       dispatch(fetchCountriesSuccess(response.data));
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+};
+
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+const fetchDataSuccess = (data) => ({
+  type: FETCH_DATA_SUCCESS,
+  payload: data,
+});
+
+export const fetchData = (url) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(url);
+      dispatch(fetchDataSuccess(response.data));
+      console.log("data", response);
     } catch (error) {
       console.log("error", error);
     }
