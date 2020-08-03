@@ -13,7 +13,12 @@ import {
 import { apiUrl } from "./config/constants";
 import InfoBox from "./components/InfoBox/InfoBox";
 import DataTable from "./components/DataTable/DataTable.js";
-import { fetchAllCountries, fetchData } from "./store/data/actions";
+import Chart from "./components/Chart/Chart";
+import {
+  fetchAllCountries,
+  fetchData,
+  fetchHistoricalData,
+} from "./store/data/actions";
 import { selectCountries, selectData } from "./store/data/selectors";
 
 function App() {
@@ -31,15 +36,24 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllCountries());
     dispatch(fetchData(`${apiUrl}/all`));
+    dispatch(fetchHistoricalData(`${apiUrl}/historical/all?lastdays=120`));
   }, [dispatch]);
 
   const onCountryChange = (event) => {
     const countryChanged = event.target.value;
-    const url =
+    setCountryName(countryChanged);
+    const dataUrl =
       countryChanged === "Global"
         ? `${apiUrl}/all`
         : `${apiUrl}/countries/${countryChanged}`;
-    dispatch(fetchData(url));
+    const historicalDataUrl =
+      countryChanged === "Global"
+        ? `${apiUrl}/historical/all?lastdays=120`
+        : `${apiUrl}/historical/${countryChanged}?lastdays=120`;
+
+    dispatch(fetchData(dataUrl));
+    dispatch(fetchHistoricalData(historicalDataUrl));
+
     setCountryName(countryChanged);
   };
   return (
@@ -81,6 +95,11 @@ function App() {
             todayCases={countryInfo.todayRecovered}
             subTitle="recovered"
           />
+        </div>
+        <div className="app-graph">
+          {" "}
+          Graph here
+          <Chart />
         </div>
 
         <Card className="app-countriesTable">
