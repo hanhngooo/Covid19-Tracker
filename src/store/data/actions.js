@@ -29,6 +29,23 @@ export const fetchData = (url) => {
     try {
       const response = await axios.get(url);
       dispatch(fetchDataSuccess(response.data));
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+};
+
+export const FETCH_HISTORICAL_DATA_SUCCESS = "FETCH_HISTORICAL_DATA_SUCCESS";
+const fetchHistoricalDataSuccess = (data) => ({
+  type: FETCH_HISTORICAL_DATA_SUCCESS,
+  payload: data,
+});
+
+export const fetchHistoricalData = (url) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(url);
+      dispatch(fetchHistoricalDataSuccess(response.data));
       console.log("data", response);
     } catch (error) {
       console.log("error", error);
