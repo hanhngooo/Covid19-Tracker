@@ -6,8 +6,8 @@ function DataTable(props) {
   return (
     <div className="dataTable">
       {props.sortedCountries &&
-        props.sortedCountries.map((country) => (
-          <Grid container className="data-row">
+        props.sortedCountries.map((country, index) => (
+          <Grid container className="data-row" key={index}>
             <Grid item xs={12} className="country-name">
               <strong>{country.country}</strong>
             </Grid>

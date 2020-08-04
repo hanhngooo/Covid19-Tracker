@@ -24,7 +24,7 @@ import { selectCountries, selectData } from "./store/data/selectors";
 function App() {
   const dispatch = useDispatch();
   const [countryName, setCountryName] = useState("Global");
-  // const [tableData, setTableData] = useState([])
+  const [casesType, setCasesType] = useState("cases");
 
   const countries = useSelector(selectCountries).filter(
     (country) => country.countryInfo.iso2 !== null
@@ -46,14 +46,8 @@ function App() {
       countryChanged === "Global"
         ? `${apiUrl}/all`
         : `${apiUrl}/countries/${countryChanged}`;
-    const historicalDataUrl =
-      countryChanged === "Global"
-        ? `${apiUrl}/historical/all?lastdays=120`
-        : `${apiUrl}/historical/${countryChanged}?lastdays=120`;
 
     dispatch(fetchData(dataUrl));
-    dispatch(fetchHistoricalData(historicalDataUrl));
-
     setCountryName(countryChanged);
   };
   return (
@@ -78,28 +72,27 @@ function App() {
         </div>
         <div className="app-stats">
           <InfoBox
+            onClick={(e) => setCasesType("cases")}
             title="Confirmed Cases"
             cases={countryInfo.cases}
-            todayCases={countryInfo.todayCases}
             subTitle="cases"
           />
           <InfoBox
+            onClick={(e) => setCasesType("deaths")}
             title="Deaths"
             cases={countryInfo.deaths}
-            todayCases={countryInfo.todayDeaths}
             subTitle="deaths"
           />
           <InfoBox
+            onClick={(e) => setCasesType("recovered")}
             title="Recovered"
             cases={countryInfo.recovered}
-            todayCases={countryInfo.todayRecovered}
             subTitle="recovered"
           />
         </div>
         <div className="app-graph">
-          {" "}
-          Graph here
-          <Chart />
+          New {casesType}
+          <Chart casesType={casesType} countryName={countryName} />
         </div>
 
         <Card className="app-countriesTable">

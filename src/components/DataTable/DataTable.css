@@ -5,10 +5,13 @@
   margin-top: 10px;
   padding: 0.5em;
 }
-
+.data-row:hover {
+  background-color: aqua;
+  transition: 0.5s;
+}
 .dataTable .data-row:nth-of-type(odd) {
   background-color: rgb(244, 241, 255);
 }
-.dataTable .country-data {
-  margin-top: 10px;
+.dataTable .data-row:nth-of-type(odd):hover {
+  background-color: aqua;
 }
