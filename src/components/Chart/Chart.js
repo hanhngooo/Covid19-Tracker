@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import "./Chart.css";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 import { apiUrl } from "../../config/constants";
@@ -102,7 +103,7 @@ function Chart(props) {
       : buildChartDataCountry(historicalData, props.casesType);
 
   return (
-    <div>
+    <div className="chart-data">
       {chartData && (
         <Line
           data={{

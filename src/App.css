@@ -14,6 +14,10 @@ body {
   overflow: scroll;
   height: 800px;
 }
+.app-graph {
+  margin-top: 10px;
+  padding-left: 16px;
+}
 .app-stats {
   display: flex;
   justify-content: space-between;

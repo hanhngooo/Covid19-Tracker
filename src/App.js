@@ -91,7 +91,7 @@ function App() {
           />
         </div>
         <div className="app-graph">
-          New {casesType}
+          <h3>New {casesType}</h3>
           <Chart casesType={casesType} countryName={countryName} />
         </div>
 
