@@ -12,7 +12,11 @@ body {
 .app-left {
   flex: 0.4;
   overflow: scroll;
-  height: 800px;
+  height: 100vh;
+  /* min-height: 100%; */
+}
+.app-right {
+  flex: 0.6;
 }
 .app-graph {
   margin-top: 10px;

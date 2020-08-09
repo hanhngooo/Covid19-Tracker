@@ -46,7 +46,6 @@ export const fetchHistoricalData = (url) => {
     try {
       const response = await axios.get(url);
       dispatch(fetchHistoricalDataSuccess(response.data));
-      console.log("data", response);
     } catch (error) {
       console.log("error", error);
     }

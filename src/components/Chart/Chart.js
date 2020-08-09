@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Chart.css";
 import { Line } from "react-chartjs-2";
@@ -81,22 +81,21 @@ const buildChartDataCountry = (data, casesType) => {
     }
     lastDataPoint = data.timeline[casesType][date];
   }
-  console.log("chartData here", chartData);
   return chartData;
 };
 
 function Chart(props) {
   const historicalData = useSelector(selectHistoricalData);
-  console.log("data before useEffect", historicalData);
   const dispatch = useDispatch();
+
   useEffect(() => {
     const historicalDataUrl =
       props.countryName === "Global"
         ? `${apiUrl}/historical/all?lastdays=120`
         : `${apiUrl}/historical/${props.countryName}?lastdays=120`;
     dispatch(fetchHistoricalData(historicalDataUrl));
-    console.log("chartData in useeffect", historicalData);
   }, [dispatch, props.countryName]);
+
   let chartData =
     props.countryName === "Global"
       ? buildChartDataGlobal(historicalData, props.casesType)
