@@ -1,3 +1,48 @@
 * {
   margin: 0;
+  color: rgb(63, 63, 63);
+}
+body {
+  background-color: #f5f6fa;
+}
+.app {
+  display: flex;
+  padding-left: 20px;
+}
+.app-left {
+  flex: 0.4;
+  overflow: scroll;
+  height: 100vh;
+  padding-right: 20px;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+.app-header h1 {
+  color: rgb(0, 221, 0);
+}
+.app-dropdown {
+  background-color: white;
+}
+.app-right {
+  flex: 0.6;
+}
+.app-graph {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-left: 16px;
+}
+.app-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 630px) {
+  .app {
+    flex-direction: column-reverse;
+  }
 }
