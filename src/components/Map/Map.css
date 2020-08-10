@@ -1,0 +1,6 @@
+.map {
+  height: 100vh;
+}
+.map .leaflet-container {
+  height: 100vh;
+}
