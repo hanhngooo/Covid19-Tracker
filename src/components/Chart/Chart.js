@@ -108,12 +108,20 @@ function Chart(props) {
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(255, 169, 130, 0.5)",
-                borderColor: "rgb(255, 81, 0)",
+                backgroundColor:
+                  props.casesType === "recovered"
+                    ? "rgb(102, 211, 102,0.5)"
+                    : "rgb(255, 101, 29, 0.5)",
+                borderColor:
+                  props.casesType === "recovered"
+                    ? "rgb(102, 211, 102)"
+                    : "rgb(255, 101, 29)",
+                height: "200px",
                 data: chartData,
               },
             ],
           }}
+          height={200}
           options={options}
         />
       )}

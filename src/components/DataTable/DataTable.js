@@ -1,6 +1,7 @@
 import React from "react";
 import "./DataTable.css";
 import { Grid, Typography } from "@material-ui/core";
+import numeral from "numeral";
 
 function DataTable(props) {
   return (
@@ -13,15 +14,15 @@ function DataTable(props) {
             </Grid>
             <Grid container xs={12}>
               <Grid item xs={12} sm={4} className="country-data">
-                {country.cases}
+                {numeral(country.cases).format("0,0")}
                 <Typography color="textSecondary">Cases</Typography>
               </Grid>
               <Grid item xs={12} sm={4} className="country-data">
-                {country.deaths}
+                {numeral(country.deaths).format("0,0")}
                 <Typography color="textSecondary">Deaths</Typography>
               </Grid>
               <Grid item xs={12} sm={4} className="country-data">
-                {country.recovered}
+                {numeral(country.recovered).format("0,0")}
                 <Typography color="textSecondary">Recovered</Typography>
               </Grid>
             </Grid>
