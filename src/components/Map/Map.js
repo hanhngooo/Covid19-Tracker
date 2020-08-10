@@ -7,15 +7,15 @@ import "./Map.css";
 function Map(props) {
   const casesTypeColors = {
     cases: {
-      hex: "#CC1034",
+      hex: "#FF651D",
       multiplier: 800,
     },
     recovered: {
-      hex: "#7dd71d",
+      hex: "#66D366",
       multiplier: 1200,
     },
     deaths: {
-      hex: "#fb4443",
+      hex: "#FF651D",
       multiplier: 2000,
     },
   };

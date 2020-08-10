@@ -6,12 +6,15 @@
   padding: 0.5em;
 }
 .data-row:hover {
-  background-color: aqua;
+  background-color: rgb(210, 255, 210);
   transition: 0.5s;
 }
 .dataTable .data-row:nth-of-type(odd) {
   background-color: rgb(244, 241, 255);
 }
 .dataTable .data-row:nth-of-type(odd):hover {
-  background-color: aqua;
+  background-color: rgb(210, 255, 210);
+}
+.country-data {
+  padding-top: 5px;
 }

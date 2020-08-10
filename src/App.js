@@ -22,7 +22,7 @@ import {
   fetchHistoricalData,
 } from "./store/data/actions";
 import { selectCountries, selectData } from "./store/data/selectors";
-// import { set } from "numeral";
+import numeral from "numeral";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function App() {
     <div className="app">
       <div className="app-left">
         <div className="app-header">
-          <h1>Covid-19 Tracker</h1>
+          <h1>COVID-19 TRACKER</h1>
           <FormControl className="app-dropdown">
             <Select
               variant="outlined"
@@ -77,20 +77,25 @@ function App() {
           <InfoBox
             onClick={(e) => setCasesType("cases")}
             title="Confirmed Cases"
-            cases={countryInfo.cases}
+            cases={numeral(countryInfo.cases).format("0,0")}
             subTitle="cases"
+            active={casesType === "cases"}
+            isRed
           />
           <InfoBox
             onClick={(e) => setCasesType("deaths")}
             title="Deaths"
-            cases={countryInfo.deaths}
+            cases={numeral(countryInfo.deaths).format("0,0")}
             subTitle="deaths"
+            active={casesType === "deaths"}
+            isRed
           />
           <InfoBox
             onClick={(e) => setCasesType("recovered")}
             title="Recovered"
-            cases={countryInfo.recovered}
+            cases={numeral(countryInfo.recovered).format("0,0")}
             subTitle="recovered"
+            active={casesType === "recovered"}
           />
         </div>
         <div className="app-graph">

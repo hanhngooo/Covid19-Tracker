@@ -1,0 +1,18 @@
+.infoBox {
+  cursor: pointer;
+}
+.infoBox-selected {
+  border-top: 5px solid rgb(102, 211, 102);
+}
+.infoBox-red {
+  border-color: rgb(255, 101, 29);
+}
+
+.infoBox-cases-green {
+  color: rgb(102, 211, 102) !important;
+}
+
+.infoBox-cases {
+  color: rgb(255, 101, 29);
+  font-weight: 600;
+}
