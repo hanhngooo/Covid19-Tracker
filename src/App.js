@@ -35,6 +35,7 @@ function App() {
   );
   const sortedCountries = countries.sort((a, b) => b.cases - a.cases);
   const countryInfo = useSelector(selectData);
+  console.log("country info", countryInfo);
 
   useEffect(() => {
     dispatch(fetchAllCountries());
@@ -106,7 +107,12 @@ function App() {
       </div>
       <div className="app-right">
         {countryName === "Global" ? (
-          <Map center={globalMapCenter} zoom={mapZoom} />
+          <Map
+            center={globalMapCenter}
+            zoom={mapZoom}
+            countries={sortedCountries}
+            casesType={casesType}
+          />
         ) : (
           countryInfo.countryInfo && (
             <Map
@@ -115,6 +121,8 @@ function App() {
                 countryInfo.countryInfo.long,
               ]}
               zoom={mapZoom}
+              countries={sortedCountries}
+              casesType={casesType}
             />
           )
         )}
