@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :earth_africa: :bug: CORONA VIRUS TRACKER :bug: :earth_africa:
 
-## Available Scripts
+The whole world is facing a very difficult time at the moment in the battle against Corona Virus. This little app is built in order to provide general statistics related to Covid 19 cases and help people updated with the situation in global and national scales. The Data is retrieved from an external API [disease.sh](https://disease.sh/v3/covid-19).
 
-In the project directory, you can run:
+In this project, I aim to pratice:
 
-### `npm start`
+- React app development with Redux state management, fetching data from API, using Leaflet
+- Practice styling with flex box and Material UI
+- Practice disciplined git usage like proper commits & branching
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :computer: App Demo
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Click [HERE](https://democovid19tracking.netlify.app) to check out the MVP demo. </br>
 
-### `npm test`
+![Demo](./src/assets/covid19-demo1.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :clipboard: Technology Used
 
-### `npm run build`
+- [React](https://github.com/hanhngooo/Covid19-Tracker/blob/master/src/App.js)
+- [Redux](https://github.com/hanhngooo/Covid19-Tracker/tree/master/src/store)
+- [Material UI](https://github.com/hanhngooo/Covid19-Tracker/blob/master/src/App.js)
+- [React-Leaflet](https://github.com/hanhngooo/Covid19-Tracker/blob/master/src/components/Map/Map.js)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :man: User stories :girl:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- As a user, I want to see stats for positive cases, deaths and recovered cases
+  - Three boxes display these stats
+- As a user, I want to know the new cases number each day
+  - A line chart displays new cases/ deaths / recovered
+- As a user I want to see stats from all the countries so I can have a comparison
+  - A table displays all stats from all countries in descending order
+- As a user, I want to see stats from countries shown on a map
+  - A map with circle points demonstrates the infected countries
+  - A pop up shows stats of each country when clicking on circles
+- As a user, I want to see stat from specific chosen country
+  - A Button with list of countries. Only the stats of a chosen country is shown on Boxes and Line Chart and Map is centered to that country
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :hammer: How this app was built
 
-### `npm run eject`
+- [Dropdown Button](https://github.com/hanhngooo/Covid19-Tracker/tree/countries-dropdown)
+- [Info Boxes](https://github.com/hanhngooo/Covid19-Tracker/tree/inforBox)
+- [Info Table](https://github.com/hanhngooo/Covid19-Tracker/tree/countries-table)
+- [Line Chart](https://github.com/hanhngooo/Covid19-Tracker/tree/chart-feature)
+- [Map](https://github.com/hanhngooo/Covid19-Tracker/tree/map)
+- [Map Info](https://github.com/hanhngooo/Covid19-Tracker/tree/map-info)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :floppy_disk: How to Install this?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Clone the app
+- cd into your project
+- Install dependencies using `npm install`
+- Start development server using `npm run start`
