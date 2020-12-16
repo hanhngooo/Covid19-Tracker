@@ -10,7 +10,10 @@ function DataTable(props) {
         props.sortedCountries.map((country, index) => (
           <Grid container className="data-row" key={index}>
             <Grid item xs={12} className="country-name">
-              <strong>{country.country}</strong>
+              <strong>
+                {index + 1}. {""}
+                {country.country}
+              </strong>
             </Grid>
             <Grid container>
               <Grid item xs={12} sm={4} className="country-data">

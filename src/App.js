@@ -35,7 +35,6 @@ function App() {
   const countries = useSelector(selectCountries).filter(
     (country) => country.countryInfo.iso2 !== null
   );
-
   const sortedCountries = countries.sort((a, b) => b.cases - a.cases);
   const countryInfo = useSelector(selectData);
   console.log("country info", countryInfo);
@@ -121,7 +120,9 @@ function App() {
         <Card className="app-countriesTable">
           <CardContent className="table-content">
             <h3>Cases by country</h3>
-            <DataTable sortedCountries={sortedCountries} />
+            <DataTable
+              sortedCountries={countries.sort((a, b) => b.cases - a.cases)}
+            />
           </CardContent>
         </Card>
       </div>
