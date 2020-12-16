@@ -27,6 +27,7 @@ body {
 }
 .app-dropdown {
   background-color: white;
+  width: 180px;
 }
 .app-right {
   flex: 0.6;

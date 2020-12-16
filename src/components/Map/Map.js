@@ -28,7 +28,7 @@ function Map(props) {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         {props.countries &&
-          props.countries.map((country) => (
+          props.countries.map((country, index) => (
             <Circle
               center={[country.countryInfo.lat, country.countryInfo.long]}
               color={casesTypeColors[props.casesType].hex}
@@ -38,6 +38,7 @@ function Map(props) {
                 Math.sqrt(country[props.casesType]) *
                 casesTypeColors[props.casesType].multiplier
               }
+              key={index}
             >
               <Popup>
                 <div className="info-container">

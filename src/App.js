@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// import Select from "react-select";
 
 import "./App.css";
 import "leaflet/dist/leaflet.css";
@@ -9,6 +10,7 @@ import {
   MenuItem,
   Card,
   CardContent,
+  Grid,
 } from "@material-ui/core";
 
 import { apiUrl } from "./config/constants";
@@ -33,6 +35,7 @@ function App() {
   const countries = useSelector(selectCountries).filter(
     (country) => country.countryInfo.iso2 !== null
   );
+
   const sortedCountries = countries.sort((a, b) => b.cases - a.cases);
   const countryInfo = useSelector(selectData);
   console.log("country info", countryInfo);
@@ -53,6 +56,7 @@ function App() {
     dispatch(fetchData(dataUrl));
     setMapZoom(4);
   };
+
   return (
     <div className="app">
       <div className="app-left">
@@ -65,38 +69,49 @@ function App() {
               value={countryName}
             >
               <MenuItem value="Global">Global</MenuItem>
-              {countries.map((country, index) => (
-                <MenuItem value={country.countryInfo.iso2} key={index}>
-                  {country.country}
-                </MenuItem>
-              ))}
+              {countries &&
+                countries
+                  .sort((a, b) => (a.country > b.country ? 1 : -1))
+                  .map((country, index) => (
+                    <MenuItem value={country.countryInfo.iso2} key={index}>
+                      {country.country}
+                    </MenuItem>
+                  ))}
             </Select>
           </FormControl>
         </div>
-        <div className="app-stats">
-          <InfoBox
-            onClick={(e) => setCasesType("cases")}
-            title="Confirmed Cases"
-            cases={numeral(countryInfo.cases).format("0,0")}
-            subTitle="cases"
-            active={casesType === "cases"}
-            isRed
-          />
-          <InfoBox
-            onClick={(e) => setCasesType("deaths")}
-            title="Deaths"
-            cases={numeral(countryInfo.deaths).format("0,0")}
-            subTitle="deaths"
-            active={casesType === "deaths"}
-            isRed
-          />
-          <InfoBox
-            onClick={(e) => setCasesType("recovered")}
-            title="Recovered"
-            cases={numeral(countryInfo.recovered).format("0,0")}
-            subTitle="recovered"
-            active={casesType === "recovered"}
-          />
+        <div>
+          <Grid container className="app-stats">
+            <Grid item xs={6} sm={6} md={4} lg={4}>
+              <InfoBox
+                onClick={(e) => setCasesType("cases")}
+                title="Cases"
+                cases={numeral(countryInfo.cases).format("0,0")}
+                subTitle="cases"
+                active={casesType === "cases"}
+                isRed
+              />
+            </Grid>
+            <Grid item xs={6} sm={6} md={4} lg={4}>
+              <InfoBox
+                onClick={(e) => setCasesType("deaths")}
+                title="Deaths"
+                cases={numeral(countryInfo.deaths).format("0,0")}
+                subTitle="deaths"
+                active={casesType === "deaths"}
+                isRed
+              />
+            </Grid>
+            <Grid item xs={6} sm={6} md={4} lg={4}>
+              <InfoBox
+                onClick={(e) => setCasesType("recovered")}
+                title="Recovered"
+                cases={numeral(countryInfo.recovered).format("0,0")}
+                subTitle="recovered"
+                active={casesType === "recovered"}
+              />
+            </Grid>
+          </Grid>
         </div>
         <div className="app-graph">
           <h3>New {casesType}</h3>

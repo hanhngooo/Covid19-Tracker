@@ -15,11 +15,11 @@ function InfoBox(props) {
           {props.title}
         </Typography>
 
-        <h2
+        <h3
           className={`infoBox-cases ${!props.isRed && "infoBox-cases-green"}`}
         >
           {props.cases}
-        </h2>
+        </h3>
       </CardContent>
     </Card>
   );

@@ -12,7 +12,7 @@ function DataTable(props) {
             <Grid item xs={12} className="country-name">
               <strong>{country.country}</strong>
             </Grid>
-            <Grid container xs={12}>
+            <Grid container>
               <Grid item xs={12} sm={4} className="country-data">
                 {numeral(country.cases).format("0,0")}
                 <Typography color="textSecondary">Cases</Typography>
